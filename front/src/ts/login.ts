@@ -6,6 +6,11 @@ interface LoginData {
   userData: string
 }
 
+const accessToken = sessionStorage.getItem("accessToken")
+if (accessToken != null) {
+  window.location.href = "/my-profile/"
+}
+
 const loginForm: HTMLFormElement = document.querySelector("#login-form")
 const username: HTMLInputElement = document.querySelector("#login-username")
 const password: HTMLInputElement = document.querySelector("#login-password")
@@ -22,8 +27,8 @@ loginForm.addEventListener("submit", (event) => {
       const json: LoginData = JSON.parse(response.data) as LoginData
       sessionStorage.setItem("accessToken", json.accessToken)
       sessionStorage.setItem("userData", JSON.stringify(json.userData))
-
-      window.location.href = "/"
+      console.log(JSON.stringify(json.userData))
+      window.location.href = "/my-profile/"
     })
     .catch((error) => console.error(error))
 })
