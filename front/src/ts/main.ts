@@ -134,7 +134,7 @@ const createPopularArtists = (artists: Artist[]): void => {
       const artist: Artist = artists[i]
       const popularArtist: HTMLElement = document.createElement("li")
       popularArtist.innerHTML = `
-      <a class="popular-artist-card" href="./profile-detail/${artist.id}">
+      <a class="popular-artist-card" href="/profile-detail/?id=${artist.id}">
         <img src="${import.meta.env.VITE_API_BASE_URL}/profilePictures/${
           artist.profile_picture
         }" alt="${artist.username}" />
@@ -156,7 +156,7 @@ const createPopularWorks = (works: Work[]): void => {
       const work: Work = works[i]
       const popularWork: HTMLElement = document.createElement("li")
       popularWork.innerHTML = `
-        <a class="popular-work-card" href="./art-detail?id=${work.id}/">
+        <a class="popular-work-card" href="art-detail/?id=${work.id}/">
           <img src="${import.meta.env.VITE_API_BASE_URL}/images/${
             work.id
           }.jpg" alt="image of ${work.name}" />
