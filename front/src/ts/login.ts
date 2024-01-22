@@ -6,6 +6,11 @@ interface LoginData {
   userData: string
 }
 
+const accessToken = sessionStorage.getItem("accessToken")
+if (accessToken != null) {
+  window.location.href = "/my-profile/"
+}
+
 const loginForm: HTMLFormElement = document.querySelector("#login-form")
 const username: HTMLInputElement = document.querySelector("#login-username")
 const password: HTMLInputElement = document.querySelector("#login-password")

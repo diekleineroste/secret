@@ -49,6 +49,7 @@ if (accessToken === null || userData == null) {
 
 const artistContainer: HTMLElement = document.querySelector("#artist-container")
 const worksContainer: HTMLElement = document.querySelector("#works-container")
+const logoutBtn: HTMLElement = document.querySelector("#logout")
 const getUserArtpieces = async () => {
   try {
     const url: string = `${import.meta.env.VITE_API_BASE_URL}/api/artists/${
@@ -126,6 +127,18 @@ const createWorks = (works: Work[]): void => {
   }
 }
 
+function logout(): void {
+  // Remove the session data
+  sessionStorage.removeItem("accessToken")
+  sessionStorage.removeItem("userData")
+  // Redirect to the login page or any other desired destination
+  window.location.href = "/"
+}
+
+logoutBtn.addEventListener("click", function (event) {
+  event.preventDefault() // Prevent the default behavior of the link
+  logout() // Call the logout function
+})
 createPopularArtists(userData)
 getUserArtpieces()
   .then((works: string) => {

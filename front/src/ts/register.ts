@@ -1,5 +1,9 @@
 import { FormValidator } from "./FormValidator"
-
+import { APIResponse } from "./util"
+interface LoginData {
+  accessToken: string
+  userData: string
+}
 const username: HTMLInputElement = document.querySelector("#username")
 const password: HTMLInputElement = document.querySelector("#password")
 const email: HTMLInputElement = document.querySelector("#email")
@@ -27,12 +31,13 @@ registerForm.addEventListener("submit", (event) => {
   formValidator.showInlineErrors()
   const formData = new FormData(registerForm)
   registerUser(formData)
-    .then((response) => {
-      if (response.ok) {
-        alert("Account created!")
-      } else {
-        console.error(response.statusText)
-      }
+    .then((response: APIResponse) => {
+      alert("Account created!")
+      const json: LoginData = JSON.parse(response.data) as LoginData
+      sessionStorage.setItem("accessToken", json.accessToken)
+      sessionStorage.setItem("userData", JSON.stringify(json.userData))
+      console.log(JSON.stringify(json.userData))
+      window.location.href = "/my-profile/"
     })
     .catch((error) => {
       console.error(error)
@@ -151,7 +156,7 @@ formValidator.addValidator({
   field: bio,
 })
 
-const registerUser = async (formData: FormData) => {
+const registerUser = async (formData: FormData): Promise<APIResponse> => {
   try {
     const response = await fetch(
       import.meta.env.VITE_API_BASE_URL + "/api/auth/register",
@@ -161,7 +166,8 @@ const registerUser = async (formData: FormData) => {
       },
     )
     if (response.ok) {
-      return response
+      const json: APIResponse = (await response.json()) as APIResponse
+      return json
     } else {
       console.error("Error sending PUT request:", response.status)
       throw new Error("Error sending PUT request")
