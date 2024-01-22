@@ -22,8 +22,8 @@ loginForm.addEventListener("submit", (event) => {
       const json: LoginData = JSON.parse(response.data) as LoginData
       sessionStorage.setItem("accessToken", json.accessToken)
       sessionStorage.setItem("userData", JSON.stringify(json.userData))
-
-      window.location.href = "/"
+      console.log(JSON.stringify(json.userData))
+      window.location.href = "/my-profile/"
     })
     .catch((error) => console.error(error))
 })
