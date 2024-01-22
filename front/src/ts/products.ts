@@ -94,7 +94,7 @@ const createWorks = (works: Work[]): void => {
     works.forEach((work: Work) => {
       const workCard: HTMLElement = document.createElement("li")
       workCard.innerHTML = `
-        <a class="work-card" href="./art-detail?id=${work.id}/">
+        <a class="work-card" href="../art-detail/?id=${work.id}">
           <img src="${import.meta.env.VITE_API_BASE_URL}/images/${
             work.id
           }.jpg" alt="image of ${work.name}" />
@@ -125,7 +125,7 @@ const createArtists = (artists: Artist[]): void => {
       const artist: Artist = artists[i]
       const artistCard: HTMLElement = document.createElement("li")
       artistCard.innerHTML = `
-      <a class="artist-card" href="./profile-detail/${artist.id}">
+      <a class="artist-card" href="../profile-detail/?id=${artist.id}">
         <img src="${import.meta.env.VITE_API_BASE_URL}/profilePictures/${
           artist.profile_picture
         }" alt="${artist.username}" />
