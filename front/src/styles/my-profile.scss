@@ -15,7 +15,7 @@ main {
             gap: 1em;
             width: 85%;
             min-height: 10em;
-            max-height: 15em;
+            max-height: 25em;
             margin: 0 auto;
             padding: 1em;
             border-radius: 1em;
@@ -72,6 +72,27 @@ main {
                 border: 1px solid var(--orange);
                 border-radius: .5em;
                 background-color: var(--orange25);
+            }
+        }
+    }
+
+    .add-art {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        a {
+            text-decoration: none;
+
+            button {
+                justify-self: center;
+                width: 16em;
+                height: 2em;
+                border: none;
+                border-radius: .5em;
+                background-color: var(--orange);
+                color: var(--white);
+                font-size: 1em;
             }
         }
     }
