@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/style.scss" />
+    <link rel="stylesheet" href="../../styles/nav.scss" />
+    <link rel="stylesheet" href="../../styles/add-art.scss" />
+    <link rel="stylesheet" href="../../styles/topography.scss" />
+    <link rel="stylesheet" href="../../styles/util.scss" />
+    <!-- Animation lib -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>ArtLab.</title>
+</head>
+
+<body class="container">
+    <header>
+        <nav>
+            <div class="logo-hamburger">
+                <a href="./" class="logo">Art<span>Lab.</span></a>
+                <button aria-expanded="true" class="hamburger" id="menu">
+                    <span aria-hidden="true" class="icon">
+                        <span></span><span></span><span></span>
+                    </span>
+                    <span>Menu</span>
+                </button>
+            </div>
+            <div class="searchbar-navlinks">
+                <form id="artForm" class="navform">
+                    <div class="search-container">
+                        <label for="search">
+                            <span class="field-label">Search</span>
+                        </label>
+                        <input type="search" name="search" class="search" id="search" autofocus="" tabindex="0"
+                            placeholder="Search for Art, Artists..." />
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul id="navigation-list" class="visible">
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../../products/">Art</a></li>
+                    <li><a href="../">My Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="add-art">
+            <div class="add-form">
+                <form id="add-form">
+                    <h1>Add your art.</h1>
+                    <div class="errorSummary" role="group" tabindex="-1" hidden="">
+                        <ul>
+                            <!-- ERROR -->
+                        </ul>
+                    </div>
+                        <div>
+                            <label for="name">
+                                <span class="field-label">Title</span>
+                            </label>
+                            <input type="text" name="name" id="name" autofocus="" tabindex="0" />
+                        </div>
+
+                        <div>
+                            <label for="picture">
+                                <span class="field-label">Picture</span>
+                                <span style="font-size: x-small;">(only .jpg)</span>
+                            </label>
+                            <input type="file" name="picture" id="picture" />
+                        </div>
+
+                        <div>
+                            <label for="descripition">
+                                <span class="field-label">Descripition</span>
+                            </label>
+                            <input type="text" name="descripition" id="descripition" />
+                        </div>
+
+                        <div>
+                            <label for="price">
+                                <span class="field-label">Price</span>
+                            </label>
+                            <input type="number" name="price" id="price" />
+                        </div>
+
+                        <div class="dimensions">
+                            <label for="width height">
+                                <span class="field-label">Dimensions</span>
+                            </label>
+                            <div class="input-dimensions">
+                                <input type="number" name="width" id="width" />
+                                <p>x</p>
+                                <input type="number" name="height" id="height" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="buy-type">
+                                <span class="field-label">Buy type</span>
+                            </label>
+                            <select name="buy-type" id="buy-type">
+                                <option value="auction">Auction</option>
+                                <option value="buynow">Buy now</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="category">
+                                <span class="field-label">Category</span>
+                            </label>
+                            <select name="category" id="category">
+                                <option value="painting">Painting</option>
+                                <option value="pictures">Photography</option>
+                                <option value="sculptures">Sculpture</option>
+                                <option value="drawings">Drawing</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <button type="submit">Add artpiece</button>
+                        </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="../../ts/navigation.ts" type="module"></script>
+    <script src="https://kit.fontawesome.com/8ebb754ef3.js" crossorigin="anonymous"></script>
+    <script>
+        AOS.init()
+    </script>
+</body>
+
+</html>
