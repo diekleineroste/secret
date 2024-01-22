@@ -45,7 +45,7 @@ main {
                 width: 100%;
 
                 .profile-img {
-                    width: 4em;
+                    width: 5em;
                     aspect-ratio: 1/1;
                     border-radius: 50%;
                     object-fit: cover;
@@ -161,6 +161,10 @@ main {
                 .left {
                     flex-direction: column;
                     width: 10em;
+
+                    .profile-img {
+                        width: 60%;
+                    }
 
                     h1 {
                         text-align: center;
