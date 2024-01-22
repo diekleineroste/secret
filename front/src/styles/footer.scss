@@ -1,0 +1,23 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .logo {
+        align-self: center;
+        font-family: Righteous, sans-serif;
+        font-size: 3em;
+        font-weight: 400;
+
+        span{
+            color: var(--orange);
+        }
+    }
+}   
+
+@media screen and (width >= 40em) {
+    footer {
+        flex-direction: row;
+    }   
+}

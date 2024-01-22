@@ -1,0 +1,168 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100\;0,200\;0,300\;0,400\;0,500\;0,600\;0,700\;1,100\;1,200\;1,300\;1,400\;1,500\;1,600\;1,700&family=Righteous&family=Roboto+Serif:ital,opsz,wght@0,8..144,100\;0,8..144,200\;0,8..144,300\;0,8..144,400\;0,8..144,500\;0,8..144,600\;0,8..144,700\;0,8..144,800\;0,8..144,900\;1,8..144,100\;1,8..144,200\;1,8..144,300\;1,8..144,500\;1,8..144,600\;1,8..144,700\;1,8..144,800\;1,8..144,900&display=swap";
+
+main {
+    .artists {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        ul {
+            display: flex;
+            flex-flow: nowrap;
+            align-items: center;
+            gap: 3em;
+            width: 100%;
+            margin: 2em 0 0;
+            padding: 0 1em;
+            overflow-x: scroll;
+            list-style-type: none;
+            scroll-snap-type: x mandatory;
+
+            .artist-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 10em;
+                height: 15em;
+                margin: .2em;
+                padding: 1em;
+                border-radius: 1em;
+                background-color: var(--offprimary);
+                box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+                color: var(--text);
+                text-decoration: none;
+
+                img {
+                    object-fit: cover;
+                    width: 8em;
+                    height: 8em;
+                    border-radius: 50%;
+                }
+                
+                hr {
+                    width: 8em;
+                    margin: 0;
+                    color: var(--select);
+                }
+
+                .artist-works {
+                    font-size: .75em;
+                }
+
+                &:hover{
+                    margin: 0;
+                    border: var(--orange75) solid .2493em;
+                }
+            }
+
+            :first-child{
+                scroll-snap-align: start;
+            }
+
+            ::-webkit-scrollbar{
+                height: 1em;
+                margin-top: 1em;
+            }
+        }
+    }
+
+    .works {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        ul {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            gap: 3em;
+            width: 100%;
+            margin: 2em 0 0;
+            padding: 0;
+            list-style-type: none;
+
+            .work-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 17.5em;
+                height: 20em;
+                transition: all .5s ease-in-out;
+                border-radius: 1em;
+                background-color: #2C2C2C;
+                box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+                color: var(--text);
+                text-decoration: none;
+
+                img, .work-image {
+                    object-fit: cover;                    
+                    width: 95%;
+                    height: 10em;
+                    border-radius: 10px;
+                }
+
+                .work-details {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    width: 95%;
+
+                    .work-specification {
+                        font-size: .75em;
+                    }
+
+                    .work-name {
+                        font-size: 1.25em;
+                    }
+
+                    .popular-work-price {
+                        font-size: 1em;
+                    }                    
+                }
+                
+                hr {
+                    width: 15em;
+                    color: var(--select);
+                }
+
+                .work-profile {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1em;
+                    width: 95%;
+
+                    img {
+                        object-fit: cover;
+                        width: 3em;
+                        height: 3em;
+                        border-radius: 50%;
+                    }
+
+                    .work-artist {
+                        font-size: 1em;
+                    }
+
+                }
+
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (width >= 1664px) {
+    main {
+        .artists {                
+            ul {
+                width: fit-content;
+                height: 25em;
+                overflow: hidden;
+            }
+        }
+    }
+}

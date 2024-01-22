@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.scss" />
+    <link rel="stylesheet" href="../styles/nav.scss" />
+    <link rel="stylesheet" href="../styles/profile-detail.scss" />
+    <link rel="stylesheet" href="../styles/topography.scss" />
+    <link rel="stylesheet" href="../styles/footer.scss" />
+    <!-- Animation lib -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>ArtLab.</title>
+  </head>
+
+  <body class="container">
+    <header>
+      <nav>
+        <div class="logo-hamburger">
+          <a href="./" class="logo">Art<span>Lab.</span></a>
+          <button aria-expanded="true" class="hamburger" id="menu">
+            <span aria-hidden="true" class="icon">
+              <span></span><span></span><span></span>
+            </span>
+            <span>Menu</span>
+          </button>
+        </div>
+        <div class="searchbar-navlinks">
+          <form id="artForm" class="navform">
+            <div class="search-container">
+              <label for="search">
+                <span class="field-label">Search</span>
+              </label>
+              <input
+                type="search"
+                name="search"
+                class="search"
+                id="search"
+                autofocus=""
+                tabindex="0"
+                placeholder="Search for Art, Artists..."
+              />
+              <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </form>
+          <ul id="navigation-list" class="visible">
+            <li><a href="../">Home</a></li>
+            <li><a href="../products/">Art</a></li>
+            <li><a href="../my-profile/">My Profile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section
+        class="hero"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <div class="profile-detail">
+          <div class="left">
+            <img
+              class="profile-img"
+              src="../img/works/dali-zelfportret.jpeg"
+              alt="dali"
+              id="profilePicture"
+            />
+            <h1 id="username">Salvador Dali</h1>
+          </div>
+          <div class="right">
+            <h2>Bio</h2>
+            <hr />
+            <p id="bio">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.
+            </p>
+          </div>
+          <div class="personal-info">
+            <p id="email">Salvador.Dali@gmail.com</p>
+            <p id="phoneNumber">04686925665</p>
+          </div>
+        </div>
+      </section>
+      <section class="art-works">
+        <h1>Art works</h1>
+        <ul>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img src="../img/works/starry-night.jpg" alt="artwork picture" />
+              <div class="work-details">
+                <span class="work-specification">Painting Oil</span>
+                <span class="work-name">Starry Night</span>
+                <span class="work-price">€ 100.000.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img
+                src="../img/works/dali-zelfportret.jpeg"
+                alt="artwork picture"
+              />
+              <div class="work-details">
+                <span class="work-specification">Painting Oil Surrealism</span>
+                <span class="work-name">Impressions d'Afrique</span>
+                <span class="work-price">€ 15.800.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img
+                src="../img/works/skeleton-smoking.jpg"
+                alt="artwork picture"
+              />
+              <div class="work-details">
+                <span class="work-specification">Paintin Oil</span>
+                <span class="work-name">Skeleton with cigarette</span>
+                <span class="work-price">€ 450.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img src="../img/works/starry-night.jpg" alt="artwork picture" />
+              <div class="work-details">
+                <span class="work-specification">Painting Oil</span>
+                <span class="work-name">Starry Night</span>
+                <span class="work-price">€ 100.000.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img
+                src="../img/works/dali-zelfportret.jpeg"
+                alt="artwork picture"
+              />
+              <div class="work-details">
+                <span class="work-specification">Painting Oil Surrealism</span>
+                <span class="work-name">Impressions d'Afrique</span>
+                <span class="work-price">€ 15.800.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img
+                src="../img/works/skeleton-smoking.jpg"
+                alt="artwork picture"
+              />
+              <div class="work-details">
+                <span class="work-specification">Paintin Oil</span>
+                <span class="work-name">Skeleton with cigarette</span>
+                <span class="work-price">€ 450.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img src="../img/works/starry-night.jpg" alt="artwork picture" />
+              <div class="work-details">
+                <span class="work-specification">Painting Oil</span>
+                <span class="work-name">Starry Night</span>
+                <span class="work-price">€ 100.000.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img
+                src="../img/works/dali-zelfportret.jpeg"
+                alt="artwork picture"
+              />
+              <div class="work-details">
+                <span class="work-specification">Painting Oil Surrealism</span>
+                <span class="work-name">Impressions d'Afrique</span>
+                <span class="work-price">€ 15.800.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+          <li>
+            <a class="work-card" href="../art-detail/">
+              <img
+                src="../img/works/skeleton-smoking.jpg"
+                alt="artwork picture"
+              />
+              <div class="work-details">
+                <span class="work-specification">Paintin Oil</span>
+                <span class="work-name">Skeleton with cigarette</span>
+                <span class="work-price">€ 450.000</span>
+              </div>
+              <hr class="hr" />
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <div class="logo">Art<span>Lab.</span></div>
+      <p>Copyright 2024</p>
+    </footer>
+    <script src="../ts/main.ts" type="module"></script>
+    <script src="../ts/navigation.ts" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/8ebb754ef3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      AOS.init()
+    </script>
+  </body>
+</html>

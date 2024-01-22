@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.scss" />
+    <link rel="stylesheet" href="./styles/nav.scss" />
+    <link rel="stylesheet" href="./styles/homepage.scss" />
+    <link rel="stylesheet" href="./styles/topography.scss" />
+    <link rel="stylesheet" href="./styles/footer.scss" />
+    <!-- Animation lib -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>ArtLab.</title>
+  </head>
+
+  <body class="container">
+    <header>
+      <nav>
+        <div class="logo-hamburger">
+          <a href="./" class="logo">Art<span>Lab.</span></a>
+          <button aria-expanded="true" class="hamburger" id="menu">
+            <span aria-hidden="true" class="icon">
+              <span></span><span></span><span></span>
+            </span>
+            <span>Menu</span>
+          </button>
+        </div>
+        <div class="searchbar-navlinks">
+          <ul id="navigation-list" class="visible">
+            <li><a href="./">Home</a></li>
+            <li><a href="./products/">Art</a></li>
+            <li><a href="./my-profile/">My Profile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div
+        class="hero"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <form id="artForm">
+          <div class="search-container">
+            <label for="search">
+              <span class="field-label">Search</span>
+            </label>
+            <input
+              type="search"
+              name="search"
+              class="search"
+              id="search"
+              autofocus=""
+              tabindex="0"
+              placeholder="Search for Art, Artists..."
+            />
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="filter">
+            <div class="category">
+              <select name="category" id="category">
+                <option value="painting">Painting</option>
+                <option value="pictures">Photography</option>
+                <option value="sculptures">Sculpture</option>
+                <option value="drawings">Drawing</option>
+              </select>
+            </div>
+            <div class="buy-type">
+              <label for="buytype" id="buytypelabel">
+                <span>Auction</span>
+              </label>
+              <input type="checkbox" name="buytype" id="buytype" />
+            </div>
+            <div class="price">
+              <div class="price-input">
+                <div class="field">
+                  <label for="min">Min. Price</label>
+                  €<input
+                    type="number"
+                    class="input-min"
+                    name="min"
+                    id="min"
+                    value=""
+                    placeholder="min. price"
+                  />
+                </div>
+                <div class="separator">-</div>
+                <div class="field">
+                  <label for="max">Max. Price</label>
+                  €<input
+                    type="number"
+                    class="input-max"
+                    name="max"
+                    id="max"
+                    value=""
+                    placeholder="max. price"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <section
+        class="popular-artists"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <h1>Popular <span>Artists</span></h1>
+        <ul id="popular-artists-container">
+          <!-- <li>
+            <a class="popular-artist-card" href="./profile-detail/">
+              <img src="./img/profile/picasso.jpg" alt="profile picture" />
+              <span class="popular-artist-name">Pablo Picasso</span>
+              <hr />
+              <span class="popular-artist-works">147.800 Works</span>
+            </a>
+          </li>
+          <li>
+            <a class="popular-artist-card" href="./profile-detail/">
+              <img src="./img/profile/dali.jpg" alt="profile picture" />
+              <span class="popular-artist-name">Salvador Dalí</span>
+              <hr />
+              <span class="popular-artist-works">1.500 Works</span>
+            </a>
+          </li>
+          <li>
+            <a class="popular-artist-card" href="./profile-detail/">
+              <img src="./img/profile/van-gogh.jpg" alt="profile picture" />
+              <span class="popular-artist-name">Vincent Van Gogh</span>
+              <hr />
+              <span class="popular-artist-works">900 Works</span>
+            </a>
+          </li> -->
+        </ul>
+      </section>
+      <section
+        class="popular-works"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <h1>Popular <span>Works</span></h1>
+        <ul id="popular-works-container">
+          <!-- <li>
+            <a class="popular-work-card" href="./art-detail/">
+              <img src="./img/works/starry-night.jpg" alt="artwork picture" />
+              <div class="popular-work-details">
+                <span class="popular-work-specification">Painting Oil</span>
+                <span class="popular-work-name">Starry Night</span>
+                <span class="popular-work-price">€ 100.000.000</span>
+              </div>
+              <hr />
+              <div class="popular-work-profile">
+                <img src="./img/profile/van-gogh.jpg" alt="profile picture" />
+                <span class="popular-work-artist">Vincent Van Gogh</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="popular-work-card" href="./art-detail/">
+              <img
+                src="./img/works/dali-zelfportret.jpeg"
+                alt="artwork picture"
+              />
+              <div class="popular-work-details">
+                <span class="popular-work-specification"
+                  >Painting Oil Surrealism</span
+                >
+                <span class="popular-work-name">Impressions d'Afrique</span>
+                <span class="popular-work-price">€ 15.800.000</span>
+              </div>
+              <hr />
+              <div class="popular-work-profile">
+                <img src="./img/profile/dali.jpg" alt="profile picture" />
+                <span class="popular-work-artist">Salvador Dalí</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="popular-work-card" href="./art-detail/">
+              <img
+                src="./img/works/skeleton-smoking.jpg"
+                alt="artwork picture"
+              />
+              <div class="popular-work-details">
+                <span class="popular-work-specification">Paintin Oil</span>
+                <span class="popular-work-name">Skeleton with cigarette</span>
+                <span class="popular-work-price">€ 450.000</span>
+              </div>
+              <hr />
+              <div class="popular-work-profile">
+                <img src="./img/profile/van-gogh.jpg" alt="profile picture" />
+                <span class="popular-work-artist">Vincent Van Gogh</span>
+              </div>
+            </a>
+          </li> -->
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <div class="logo">Art<span>Lab.</span></div>
+      <p>Copyright 2024</p>
+    </footer>
+    <script src="./ts/main.ts" type="module"></script>
+    <script src="./ts/navigation.ts" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/8ebb754ef3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      AOS.init()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.scss" />
+    <link rel="stylesheet" href="../styles/nav.scss" />
+    <link rel="stylesheet" href="../styles/authentication.scss" />
+    <link rel="stylesheet" href="../styles/topography.scss" />
+    <link rel="stylesheet" href="../styles/util.scss" />
+    <!-- Animation lib -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>ArtLab.</title>
+  </head>
+
+  <body class="container">
+    <header>
+      <nav>
+        <div class="logo-hamburger">
+          <a href="../" class="logo">Art<span>Lab.</span></a>
+          <button aria-expanded="true" class="hamburger" id="menu">
+            <span aria-hidden="true" class="icon">
+              <span></span><span></span><span></span>
+            </span>
+            <span>Menu</span>
+          </button>
+        </div>
+        <div class="searchbar-navlinks">
+          <form id="artForm" class="navform">
+            <div class="search-container">
+              <label for="search">
+                <span class="field-label">Search</span>
+              </label>
+              <input
+                type="search"
+                name="search"
+                class="search"
+                id="search"
+                autofocus=""
+                tabindex="0"
+                placeholder="Search for Art, Artists..."
+              />
+              <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </form>
+          <ul id="navigation-list" class="visible">
+            <li><a href="./">Home</a></li>
+            <li><a href="./products/">Art</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="../my-profile/">My Profile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="login-register">
+        <div class="login-form">
+          <form id="login-form">
+            <h1>Login</h1>
+            <div class="errorSummary" role="group" tabindex="-1" hidden="">
+              <ul>
+                <!-- ERROR -->
+              </ul>
+            </div>
+            <div>
+              <label for="login-username">
+                <span class="field-label">Username</span>
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="login-username"
+                autofocus=""
+                tabindex="0"
+              />
+            </div>
+
+            <div>
+              <label for="login-password">
+                <span class="field-label">Password</span>
+              </label>
+              <input type="password" name="password" id="login-password" />
+            </div>
+
+            <div>
+              <button type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+        <div class="register-form">
+          <form id="register-form">
+            <h1>Register</h1>
+            <div class="errorSummary" role="group" tabindex="-1" hidden="">
+              <ul>
+                <!-- ERROR -->
+              </ul>
+            </div>
+            <div>
+              <label for="username">
+                <span class="field-label">Username</span>
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                autofocus=""
+                tabindex="0"
+              />
+            </div>
+
+            <div>
+              <label for="email">
+                <span class="field-label">E-mail</span>
+              </label>
+              <input type="text" name="email" id="email" />
+            </div>
+
+            <div>
+              <label for="phonenumber">
+                <span class="field-label">Phonenumber</span>
+              </label>
+              <input type="text" name="phonenumber" id="phonenumber" />
+            </div>
+
+            <div>
+              <label for="bio">
+                <span class="field-label">bio</span>
+              </label>
+              <input type="text" name="bio" id="bio" />
+            </div>
+
+            <div>
+              <label for="date-of-birth">
+                <span class="field-label">Date of birth</span>
+              </label>
+              <input type="date" name="date_of_birth" id="date-of-birth" />
+            </div>
+
+            <div>
+              <label for="profilePicture">
+                <span class="field-label">Profile picture</span>
+              </label>
+              <input type="file" name="profilePicture" id="profilePicture" />
+            </div>
+
+            <div>
+              <label for="street_no">
+                <span class="field-label">Street and number</span>
+              </label>
+              <input type="text" name="street_no" id="street_no" />
+            </div>
+
+            <div>
+              <label for="city">
+                <span class="field-label">City</span>
+              </label>
+              <input type="text" name="city" id="city" />
+            </div>
+
+            <div>
+              <label for="zip">
+                <span class="field-label">Zip code</span>
+              </label>
+              <input type="string" name="zip" id="zip" />
+            </div>
+
+            <div>
+              <label for="country">
+                <span class="field-label">Country</span>
+              </label>
+              <input type="text" name="country" id="country" />
+            </div>
+
+            <div>
+              <label for="password">
+                <span class="field-label">Password</span>
+              </label>
+              <input type="password" name="password" id="password" />
+            </div>
+
+            <div>
+              <button type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="../ts/register.ts" type="module"></script>
+    <script src="../ts/login.ts" type="module"></script>
+    <script src="../ts/navigation.ts" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/8ebb754ef3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      AOS.init()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+main {
+    .hero {
+        width: 90%;
+        height: 4em;
+        margin: 0 auto 20em;
+        padding:5em 1em 0 ;
+        border-radius: .5em;
+        background-image: url("../img/hero_painting.jpg");
+        background-size: cover;
+
+        .profile-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+            width: 85%;
+            max-height: 27em;
+            margin: 0 auto;
+            padding: 1em;
+            border-radius: 1em;
+            background-color: var(--offprimary);
+            box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+
+            h1 {
+                margin: 0;
+                font-size: 1.5em;
+            }
+
+            h2 {
+                margin-bottom: 0;
+                font-size: 1.2em;
+            }
+
+            p {
+                margin-top: 0;
+                font-size: .7em;
+            }
+
+            .left {
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                .profile-img {
+                    width: 4em;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+        
+            .right {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 1em;
+                width: 100%;
+
+                hr {
+                    width: 100%;
+                    margin: 0;
+                    color: var(--select);
+                }
+            }
+
+            .personal-info {
+                padding: .5em 1em;
+                border: 1px solid var(--orange);
+                border-radius: .5em;
+                background-color: var(--orange25);
+            }
+        }
+    }
+
+    .art-works {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: space-evenly;
+            width:85%;
+            margin: 2em 0 0;
+            padding: 0;
+            list-style-type: none;
+
+            .work-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 17.5em;
+                height: 20em;
+                border-radius: 1em;
+                background-color: var(--offprimary);
+                box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+                color: var(--text);
+                text-decoration: none;
+
+                img {
+                    object-fit: cover;
+                    width: 95%;
+                    height: 10em;
+                    border-radius: 10px;
+                }
+
+                .work-details {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    width: 95%;
+
+                    .work-specification {
+                        font-size: .75em;
+                    }
+
+                    .work-name {
+                        font-size: 1.25em;
+                    }
+
+                    .work-price {
+                        font-size: 1em;
+                    }                    
+                }
+                
+                .hr {
+                    width: 15em;
+                    color: var(--select);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (width >= 50em) {
+    main {
+        .hero {
+            max-width: 75%;
+            height: 8em;
+            margin: 0 auto 6em;
+            padding:10em 1em 0 ;
+            border-radius: 1em;
+    
+            .profile-detail {
+                flex-direction: row;
+                justify-content: space-between;
+                width: 75%;
+                max-height: 17em;
+
+                p {
+                    margin: .5em 0;
+                    font-size: .9em;
+                }
+    
+                .left {
+                    flex-direction: column;
+                    width: 10em;
+
+                    h1 {
+                        text-align: center;
+                    }
+                }
+            
+                .right {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (width >= 50em) and (width <= 80em){
+    main {
+        .hero {
+            .profile-detail {
+                width: 85%;
+
+                p {
+                    font-size: .7em;
+                }
+            }
+        }
+    }
+}

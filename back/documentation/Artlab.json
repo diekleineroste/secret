@@ -1,0 +1,2075 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "mon984wzzvaf2"
+  },
+  "info": {
+    "title": "Artlab",
+    "version": "1.0",
+    "description": "Artlab API Docs"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/users/{userId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "Id of an existing user."
+        }
+      ],
+      "get": {
+        "summary": "Get User Info by User ID",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "User Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                },
+                "examples": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User Not Found"
+          }
+        },
+        "operationId": "get-users-userId",
+        "description": "Retrieve the information of the user with the matching user ID.",
+        "x-stoplight": {
+          "id": "53ujyoo1i702r"
+        }
+      },
+      "patch": {
+        "summary": "Update User Information",
+        "operationId": "patch-users-userId",
+        "responses": {
+          "200": {
+            "description": "User Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "kmphayivup9ym"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "8qpulqoof7bh8"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "x-stoplight": {
+                        "id": "m1nr4b2wzdngf"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Email Already Taken",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "79w0n5g3z54nc"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "x-stoplight": {
+                        "id": "gjt4gevhp8ga3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Update the information of an existing user.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstname": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "6lwwrmgcpikci"
+                    }
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "vgaadd7y78knl"
+                    }
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "If a new email is given, the user's email verified property will be set to false."
+                  },
+                  "date_of_birth": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "n2n38rmfqwg7t"
+                    }
+                  },
+                  "profilepicture": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "c6wcyiy7eqr40"
+                    }
+                  },
+                  "phonenumber": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "zfzjd4d8rjav2"
+                    }
+                  },
+                  "address": {
+                    "type": "object",
+                    "x-stoplight": {
+                      "id": "szognspnegivp"
+                    },
+                    "properties": {
+                      "street": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "ao0ka6bpti321"
+                        }
+                      },
+                      "city": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "zw10p23egkol3"
+                        }
+                      },
+                      "postalcode": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "az9n3zc8qzcya"
+                        }
+                      },
+                      "house_number": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "qg2eh5a6ailvq"
+                        }
+                      },
+                      "country": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "fdkyr108aezj1"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "description": "Patch user properties to update."
+        },
+        "x-stoplight": {
+          "id": "hovy0l8b42q43"
+        }
+      }
+    },
+    "/artpieces": {
+      "get": {
+        "summary": "Get art pieces",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "olgdsdegm3o39"
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "x-stoplight": {
+                        "id": "evpvj8ciylxmk"
+                      },
+                      "items": {
+                        "$ref": "#/components/schemas/Artpiece",
+                        "x-stoplight": {
+                          "id": "bqfz4g7wqp826"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "50o1ajfz1qrzu"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "x-stoplight": {
+                        "id": "sjkisf0aask4v"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-artpieces",
+        "x-stoplight": {
+          "id": "ttkxrlolw3001"
+        },
+        "description": "Get art pieces by page",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "page number",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "filter",
+            "description": "filter by tags split with \",\" or dimensions widthxheight"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "sort",
+            "description": "sort by likes, comments, price"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "order",
+            "description": "asc or desc"
+          }
+        ],
+        "security": []
+      },
+      "post": {
+        "summary": "Create art piece",
+        "tags": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Artpiece",
+                      "x-stoplight": {
+                        "id": "h55b6ahtgszwr"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-artpieces",
+        "x-stoplight": {
+          "id": "1nxf3zll7c6nh"
+        },
+        "description": "Create a new artpiece",
+        "x-internal": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Artpiece"
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/artpieces/{artpieceId}/comments": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "artpieceId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Post comment",
+        "tags": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "nabtlozskkqkr"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                },
+                "examples": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-comments-artpieceId",
+        "x-stoplight": {
+          "id": "0w6zlzn0zw7w8"
+        },
+        "description": "Post a comment under an artpiece",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "13daec5mvvt0l"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete - copy": {
+        "summary": "Delete comment",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-comments-artpieceId",
+        "requestBody": {
+          "content": {}
+        },
+        "description": "Delete a comment for user and admin"
+      },
+      "patch - copy": {
+        "summary": "Update Comment",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false
+                    }
+                  }
+                },
+                "examples": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Update Users Comment",
+        "description": "Admin endpoint to update user comment",
+        "x-internal": true,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/artpieces/{artpieceId}/comments/{commentId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "artpieceId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "commentId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete comment",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-comments-artpieceId",
+        "requestBody": {
+          "content": {}
+        },
+        "description": "Delete a comment for user and admin",
+        "x-stoplight": {
+          "id": "rwuwp9ap8mbb2"
+        }
+      },
+      "delete - copy": {
+        "summary": "Delete comment",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-comments-artpieceId",
+        "requestBody": {
+          "content": {}
+        },
+        "description": "Delete a comment for user and admin"
+      },
+      "patch": {
+        "summary": "Update Comment",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false
+                    }
+                  }
+                },
+                "examples": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "update-users-comment",
+        "description": "Update comment for user and admin",
+        "x-internal": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-stoplight": {
+          "id": "utncnkwt6zfft"
+        }
+      },
+      "patch - copy": {
+        "summary": "Update Comment",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false
+                    }
+                  }
+                },
+                "examples": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Update Users Comment",
+        "description": "Admin endpoint to update user comment",
+        "x-internal": true,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comment"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": ""
+      }
+    },
+    "/auth/login": {
+      "get": {
+        "summary": "Login user",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "set-cookie": {
+                "schema": {
+                  "type": "string"
+                },
+                "deprecated": false,
+                "description": "authorization and refresh_token"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "t28cyic98rqw2"
+                      }
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/User",
+                      "x-stoplight": {
+                        "id": "tvtpa26u41ojf"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "x-stoplight": {
+                        "id": "jeknxk5qlld2z"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "x-stoplight": {
+                        "id": "en3i7mjn8fg5q"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-auth",
+        "x-stoplight": {
+          "id": "4pjkcrv2mxqdf"
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "93atnb4cg2tbu"
+                    }
+                  },
+                  "password": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "65qpmg3jaihtf"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "parameters": []
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Register user",
+        "operationId": "post-auth-register",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "x-stoplight": {
+                        "id": "x0bpednqg6vjl"
+                      },
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/User",
+                      "x-stoplight": {
+                        "id": "kvky3vf9c8ddy"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-stoplight": {
+          "id": "szzdyyprt5k6b"
+        },
+        "description": "Register user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "0o1zpds71b0jp"
+                    }
+                  },
+                  "email": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "316lcscag51zw"
+                    }
+                  },
+                  "address": {
+                    "type": "object",
+                    "x-stoplight": {
+                      "id": "d2vu8oduzmfmh"
+                    },
+                    "properties": {
+                      "street": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "fgsi8jjjcavsa"
+                        }
+                      },
+                      "city": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "n8m4ya32zwydp"
+                        }
+                      },
+                      "postalcode": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "xapkp0qvrjz27"
+                        }
+                      },
+                      "house_number": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "wvrwk4x1wofze"
+                        }
+                      },
+                      "country": {
+                        "type": "string",
+                        "x-stoplight": {
+                          "id": "flfaru5yy52po"
+                        }
+                      }
+                    }
+                  },
+                  "phonenumber": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "trioar8sufowg"
+                    }
+                  },
+                  "date_of_birth": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "b9iugi27d8w05"
+                    }
+                  },
+                  "profilepicture": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "lc1z41j1pdgh2"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/refreshToken": {
+      "get": {
+        "summary": "Refresh token",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "set_cookie": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "authorization and refresh_token"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-auth-refreshToken",
+        "x-stoplight": {
+          "id": "y1d6uge1c237j"
+        },
+        "description": "Refresh authorization token OAuth2.0",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "refresh_token",
+            "description": "refresh token"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization token"
+          }
+        ]
+      }
+    },
+    "/artpieces/{artpieceId}/like/": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "artpieceId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Like an art piece",
+        "operationId": "post-artpieces-artpieceId-like",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-stoplight": {
+          "id": "h86z2svnaprx5"
+        },
+        "description": "Like an art piece, if already liked, unlike artpiece"
+      }
+    },
+    "/artpieces/{artpieceId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "artpieceId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get art piece",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-artpieces-artpieceId",
+        "x-stoplight": {
+          "id": "a7vt4w62nrv9u"
+        },
+        "description": "Get specific art piece by id",
+        "security": []
+      },
+      "patch": {
+        "summary": "Update art piece",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "patch-artpieces-artpieceId",
+        "x-stoplight": {
+          "id": "rlei8uyit4cip"
+        },
+        "x-internal": false,
+        "description": "Update art piece for user and admin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "width_in_cm": {
+                    "type": "number"
+                  },
+                  "heigh_in_cmt": {
+                    "type": "number"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "enum": [
+                      "buynow",
+                      "auction"
+                    ]
+                  },
+                  "category": {
+                    "enum": [
+                      "pictures",
+                      "sculptures",
+                      "paintings",
+                      "drawings"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "title": "User",
+            "id": "string",
+            "username": "string",
+            "email": "string",
+            "address": {
+              "street": "string",
+              "city": "string",
+              "postalcode": "string",
+              "house_number": "string",
+              "country": "string"
+            },
+            "role": {
+              "enum": [
+                "admin",
+                "user"
+              ]
+            },
+            "orders": [],
+            "art": [],
+            "phonenumber": "string",
+            "profilepicture": "string",
+            "created_at": "string",
+            "date_of_birth": "string"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "postalcode": {
+                "type": "string"
+              },
+              "house_number": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              }
+            }
+          },
+          "role": {
+            "enum": [
+              "admin",
+              "user"
+            ]
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
+          "art": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Artpiece"
+            }
+          },
+          "phonenumber": {
+            "type": "string"
+          },
+          "profilepicture": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "Bid": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "title": "Bid",
+            "id": "string",
+            "amount": "number",
+            "user": "",
+            "created_at": "string"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Auction": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "id": "string",
+            "artpiece": " ",
+            "bids": "",
+            "enddate": "string",
+            "created_at": "string"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "artpiece": {
+            "$ref": "#/components/schemas/Artpiece"
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Bid",
+              "x-stoplight": {
+                "id": "q3421kidcysmj"
+              }
+            }
+          },
+          "enddate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Artpiece": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "id": "string",
+            "name": "string",
+            "description": "string",
+            "images": [],
+            "width_in_cm": "number",
+            "heigh_in_cmt": "number",
+            "price": "number",
+            "type": [],
+            "comments": [],
+            "likes": [],
+            "category": [],
+            "created_at": "string"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "width_in_cm": {
+            "type": "number"
+          },
+          "heigh_in_cmt": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "type": {
+            "enum": [
+              "buynow",
+              "auction"
+            ]
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "likes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "category": {
+            "enum": [
+              "pictures",
+              "sculptures",
+              "paintings",
+              "drawings"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tags": {
+            "type": "array",
+            "x-stoplight": {
+              "id": "vrfptpnx2t4p1"
+            },
+            "items": {
+              "x-stoplight": {
+                "id": "0tq67pjn5r0et"
+              },
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "title": "Comment",
+            "id": "string",
+            "author": "",
+            "content": "string",
+            "likes": "string",
+            "created_at": "string"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "author": {
+            "$ref": "#/components/schemas/User"
+          },
+          "content": {
+            "type": "string"
+          },
+          "likes": {
+            "type": "array",
+            "items": {
+              "x-stoplight": {
+                "id": "qnv2401qhqb4h"
+              },
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "title": "Order",
+            "id": "string",
+            "user": "User",
+            "address": {
+              "street": "string",
+              "city": "string",
+              "postalcode": "string",
+              "house_number": "string",
+              "country": "string"
+            },
+            "items": [],
+            "status": [],
+            "created_at": "string"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "postalcode": {
+                "type": "string"
+              },
+              "house_number": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Artpiece"
+            }
+          },
+          "status": {
+            "enum": [
+              "ordered",
+              "shipped",
+              "arrived",
+              "returned"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "authorization": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "/auth/login",
+            "refreshUrl": "/auth/refresh",
+            "scopes": {}
+          }
+        }
+      }
+    },
+    "requestBodies": {}
+  },
+  "security": [
+    {
+      "authorization": []
+    }
+  ]
+}
