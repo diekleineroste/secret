@@ -33,8 +33,8 @@ addForm.addEventListener("submit", function (event) {
       .catch((error) => {
         console.error(error)
       })
+    this.reset()
   }
-  this.reset()
 })
 
 const formValidator: FormValidator = new FormValidator(addForm)
@@ -60,6 +60,13 @@ formValidator.addValidator({
 })
 
 // Description Validator
+formValidator.addValidator({
+  name: "description",
+  method: (field: HTMLInputElement) => field.value.trim().length < 256,
+  message: "Description is too long max (255)",
+  field: description,
+})
+
 formValidator.addValidator({
   name: "description",
   method: (field: HTMLInputElement) => field.value.trim().length > 0,
