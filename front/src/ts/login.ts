@@ -32,8 +32,8 @@ loginForm.addEventListener("submit", function (event) {
         window.location.href = "/my-profile/"
       })
       .catch((error) => console.error(error))
+    this.reset()
   }
-  this.reset()
 })
 
 const formValidator: FormValidator = new FormValidator(loginForm)

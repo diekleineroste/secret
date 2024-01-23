@@ -43,8 +43,8 @@ registerForm.addEventListener("submit", function (event) {
       .catch((error) => {
         console.error(error)
       })
+    this.reset()
   }
-  this.reset()
 })
 
 const formValidator: FormValidator = new FormValidator(registerForm)
