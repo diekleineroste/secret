@@ -24,7 +24,7 @@ export default defineConfig({
                 products: resolve(__dirname, 'src/products/index.html'),
                 my_profile: resolve(__dirname, 'src/my-profile/index.html'),
                 authentication: resolve(__dirname, 'src/authentication/index.html'),
-                add_art: resolve(__dirname, 'src/my-profile/add_art/index.html'),
+                add_art: resolve(__dirname, 'src/my-profile/add-art/index.html'),
             },
         }
     }
