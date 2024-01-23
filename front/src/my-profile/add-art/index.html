@@ -71,7 +71,7 @@
                                 <span class="field-label">Picture</span>
                                 <span style="font-size: x-small;">(only .jpg)</span>
                             </label>
-                            <input type="file" name="picture" id="picture" />
+                            <input type="file" name="profilePpicture" id="picture" />
                         </div>
 
                         <div>
@@ -93,9 +93,9 @@
                                 <span class="field-label">Dimensions</span>
                             </label>
                             <div class="input-dimensions">
-                                <input type="number" name="width" id="width" />
+                                <input type="number" name="width_in_cm" id="width" />
                                 <p>x</p>
-                                <input type="number" name="height" id="height" />
+                                <input type="number" name="height_in_cm" id="height" />
                             </div>
                         </div>
 
@@ -103,7 +103,7 @@
                             <label for="buy-type">
                                 <span class="field-label">Buy type</span>
                             </label>
-                            <select name="buy-type" id="buy-type">
+                            <select name="type" id="buy-type">
                                 <option value="auction">Auction</option>
                                 <option value="buynow">Buy now</option>
                             </select>
@@ -129,6 +129,7 @@
         </section>
     </main>
     <footer></footer>
+    <script src="../../ts/addArt.ts" type="module"></script>
     <script src="../../ts/navigation.ts" type="module"></script>
     <script src="https://kit.fontawesome.com/8ebb754ef3.js" crossorigin="anonymous"></script>
     <script>

@@ -25,23 +25,26 @@ if (registerForm === undefined) {
   console.error("registerForm undefined")
 }
 
-registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", function (event) {
   event.preventDefault()
-  formValidator.validate()
-  formValidator.showInlineErrors()
-  const formData = new FormData(registerForm)
-  registerUser(formData)
-    .then((response: APIResponse) => {
-      alert("Account created!")
-      const json: LoginData = JSON.parse(response.data) as LoginData
-      sessionStorage.setItem("accessToken", json.accessToken)
-      sessionStorage.setItem("userData", JSON.stringify(json.userData))
-      console.log(JSON.stringify(json.userData))
-      window.location.href = "/my-profile/"
-    })
-    .catch((error) => {
-      console.error(error)
-    })
+  if (formValidator.validate()) {
+    formValidator.validate()
+    formValidator.showInlineErrors()
+    const formData = new FormData(registerForm)
+    registerUser(formData)
+      .then((response: APIResponse) => {
+        alert("Account created!")
+        const json: LoginData = JSON.parse(response.data) as LoginData
+        sessionStorage.setItem("accessToken", json.accessToken)
+        sessionStorage.setItem("userData", JSON.stringify(json.userData))
+        console.log(JSON.stringify(json.userData))
+        window.location.href = "/my-profile/"
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+  this.reset()
 })
 
 const formValidator: FormValidator = new FormValidator(registerForm)
