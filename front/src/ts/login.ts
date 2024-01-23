@@ -18,19 +18,22 @@ if (loginForm === undefined) {
   console.error("login-form undefined")
 }
 
-loginForm.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", function (event) {
   event.preventDefault()
-  formValidator.validate()
-  formValidator.showInlineErrors()
-  login(username.value, password.value)
-    .then((response: APIResponse) => {
-      const json: LoginData = JSON.parse(response.data) as LoginData
-      sessionStorage.setItem("accessToken", json.accessToken)
-      sessionStorage.setItem("userData", JSON.stringify(json.userData))
-      console.log(JSON.stringify(json.userData))
-      window.location.href = "/my-profile/"
-    })
-    .catch((error) => console.error(error))
+  if (formValidator.validate()) {
+    formValidator.validate()
+    formValidator.showInlineErrors()
+    login(username.value, password.value)
+      .then((response: APIResponse) => {
+        const json: LoginData = JSON.parse(response.data) as LoginData
+        sessionStorage.setItem("accessToken", json.accessToken)
+        sessionStorage.setItem("userData", JSON.stringify(json.userData))
+        console.log(JSON.stringify(json.userData))
+        window.location.href = "/my-profile/"
+      })
+      .catch((error) => console.error(error))
+    this.reset()
+  }
 })
 
 const formValidator: FormValidator = new FormValidator(loginForm)

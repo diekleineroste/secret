@@ -71,14 +71,14 @@
                                 <span class="field-label">Picture</span>
                                 <span style="font-size: x-small;">(only .jpg)</span>
                             </label>
-                            <input type="file" name="picture" id="picture" />
+                            <input type="file" name="profilePicture" id="picture" />
                         </div>
 
                         <div>
-                            <label for="descripition">
+                            <label for="description">
                                 <span class="field-label">Descripition</span>
                             </label>
-                            <input type="text" name="descripition" id="descripition" />
+                            <input type="text" name="description" id="description" />
                         </div>
 
                         <div>
@@ -93,9 +93,9 @@
                                 <span class="field-label">Dimensions</span>
                             </label>
                             <div class="input-dimensions">
-                                <input type="number" name="width" id="width" />
+                                <input type="number" name="width_in_cm" id="width" />
                                 <p>x</p>
-                                <input type="number" name="height" id="height" />
+                                <input type="number" name="height_in_cm" id="height" />
                             </div>
                         </div>
 
@@ -103,8 +103,8 @@
                             <label for="buy-type">
                                 <span class="field-label">Buy type</span>
                             </label>
-                            <select name="buy-type" id="buy-type">
-                                <option value="auction">Auction</option>
+                            <select name="type" id="buy-type">
+                                <option value="auction" selected>Auction</option>
                                 <option value="buynow">Buy now</option>
                             </select>
                         </div>
@@ -114,7 +114,7 @@
                                 <span class="field-label">Category</span>
                             </label>
                             <select name="category" id="category">
-                                <option value="painting">Painting</option>
+                                <option value="paintings" selected>Painting</option>
                                 <option value="pictures">Photography</option>
                                 <option value="sculptures">Sculpture</option>
                                 <option value="drawings">Drawing</option>
@@ -129,6 +129,7 @@
         </section>
     </main>
     <footer></footer>
+    <script src="../../ts/addArt.ts" type="module"></script>
     <script src="../../ts/navigation.ts" type="module"></script>
     <script src="https://kit.fontawesome.com/8ebb754ef3.js" crossorigin="anonymous"></script>
     <script>
